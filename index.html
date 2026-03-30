@@ -1,5 +1,1043 @@
----
-layout: home
-title: My website
-subtitle: This is where I will tell my friends way too much about me
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabrielle Angeloro McKasy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #e8e6dc;
+      --bg-dark: #1c1b18;
+      --text-primary: #141413;
+      --text-secondary: #30302e;
+      --text-muted: #87867f;
+      --accent-pink: #e0507a;
+      --accent-coral: #d97757;
+      --border: rgba(20, 20, 19, 0.12);
+      --nav-height: 4.25rem;
+      --font-serif: 'Source Serif 4', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      background: rgba(232, 230, 220, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links .nav-resume {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      color: var(--text-primary);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links .nav-resume:hover {
+      background: rgba(20, 20, 19, 0.06);
+      border-color: var(--text-muted);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: var(--nav-height);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(3rem, 6vw, 7rem) clamp(1.5rem, 4vw, 4rem);
+      padding-right: clamp(1.5rem, 3vw, 3rem);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-coral);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2.75rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-heading em {
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .hero-description {
+      font-size: clamp(1rem, 1.25vw, 1.1875rem);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 42ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--text-primary);
+      color: var(--bg);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 2rem;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--text-secondary);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 2rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-muted);
+      transform: translateY(-1px);
+    }
+
+    .hero-visual {
+      position: relative;
+      overflow: hidden;
+      background: var(--text-primary);
+    }
+
+    .hero-visual-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    .hero-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(237, 161, 0, 0.15) 0%, rgba(217, 119, 87, 0.1) 100%);
+    }
+
+    .hero-visual-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background: linear-gradient(160deg, #1c1b18 0%, #2e2d29 50%, #1c1b18 100%);
+    }
+
+    .avatar-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-coral));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: var(--bg-dark);
+    }
+
+    .hero-visual-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: rgba(232, 230, 220, 0.5);
+      letter-spacing: 0.05em;
+    }
+
+    .avatar-photo {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid rgba(232, 230, 220, 0.15);
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 4vw, 4rem);
+    }
+
+    .section-label {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.25rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-heading em {
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      border-top: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: start;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-text p {
+      font-size: clamp(1rem, 1.1vw, 1.125rem);
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      padding: 1.75rem;
+      background: rgba(20, 20, 19, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-number span {
+      color: var(--accent-coral);
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── WORK ── */
+    #work {
+      background: var(--text-primary);
+      color: var(--bg);
+      border-top: none;
+    }
+
+    #work .section-label {
+      color: rgba(232, 230, 220, 0.4);
+    }
+
+    #work .section-heading {
+      color: var(--bg);
+    }
+
+    #work .section-heading em {
+      color: rgba(232, 230, 220, 0.55);
+    }
+
+    .work-employer-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      margin-top: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(232, 230, 220, 0.08);
+    }
+
+    .gda-logo {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      border-radius: 6px;
+      opacity: 0.9;
+    }
+
+    .work-employer-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(232, 230, 220, 0.45);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      margin-top: 2rem;
+    }
+
+    .work-card {
+      background: rgba(232, 230, 220, 0.03);
+      padding: 2.5rem 2rem;
+      transition: background 0.25s ease;
+      cursor: default;
+    }
+
+    .work-card:hover {
+      background: rgba(232, 230, 220, 0.06);
+    }
+
+    .work-card-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-pink);
+      margin-bottom: 1.25rem;
+    }
+
+    .work-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.375rem;
+      font-weight: 400;
+      color: var(--bg);
+      line-height: 1.3;
+      margin-bottom: 0.875rem;
+      letter-spacing: -0.01em;
+    }
+
+    .work-card p {
+      font-size: 0.9375rem;
+      color: rgba(232, 230, 220, 0.55);
+      line-height: 1.65;
+    }
+
+    /* ── SKILLS ── */
+    #skills {
+      border-top: 1px solid var(--border);
+      max-width: 100%;
+    }
+
+    .skills-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skills-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(2rem, 5vw, 6rem);
+      align-items: start;
+      margin-bottom: 4rem;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.125rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+    }
+
+    .skill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-coral);
+      flex-shrink: 0;
+    }
+
+    .skills-description {
+      font-size: clamp(1rem, 1.1vw, 1.125rem);
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* ── EDUCATION ── */
+    #education {
+      background: rgba(20, 20, 19, 0.03);
+      border-top: 1px solid var(--border);
+    }
+
+    .education-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 3rem;
+    }
+
+    .education-item {
+      display: grid;
+      grid-template-columns: 4.5rem 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .education-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .school-logo {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 6px;
+      margin-top: 0.15rem;
+    }
+
+    .education-degree {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .education-school {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .education-detail {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .education-year {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      padding-top: 0.2rem;
+    }
+
+    /* ── PUBLICATIONS ── */
+    #publications {
+      border-top: 1px solid var(--border);
+    }
+
+    .publications-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .publications-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+
+    .publications-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .publication-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      background: rgba(20, 20, 19, 0.02);
+    }
+
+    .publication-card:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
+    }
+
+    .publication-card-image {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+      background: #f0eeea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .publication-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .publication-card-image--small img {
+      object-fit: contain;
+      width: 70%;
+      height: 70%;
+    }
+
+    .publication-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .publication-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .publication-date {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .publication-title {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .publication-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    #contact .section-heading {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin-bottom: 1.25rem;
+    }
+
+    #contact p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem clamp(1.5rem, 4vw, 4rem);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-visual {
+        height: 50vw;
+        min-height: 300px;
+        order: -1;
+      }
+
+      .hero-content {
+        padding: 3rem 1.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .skills-header {
+        grid-template-columns: 1fr;
+      }
+
+      .publication-item {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+
+      .education-item {
+        grid-template-columns: 4.5rem 1fr;
+        gap: 1rem;
+      }
+
+      .education-year {
+        display: none;
+      }
+
+      .publications-list {
+        grid-template-columns: 1fr;
+      }
+
+      .publications-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Gabrielle Angeloro McKasy</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="data/Angeloro_McKasy_resume.pdf" download class="nav-resume">Resume</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Senior Data Scientist &amp; Computational Mathematician</p>
+      <h1 class="hero-heading">Mathematics that <em>deploys.</em></h1>
+      <p class="hero-description">
+        I translate complex mathematics into production software — specializing in topological data analysis, deep neural network explainability, and agentic AI systems, with research collaborations at NASA and DARPA.
+      </p>
+      <div class="hero-cta">
+        <a href="#work" class="btn-primary">View my work</a>
+        <a href="data/Angeloro_McKasy_resume.pdf" download class="btn-secondary">Download resume</a>
+        <a href="#contact" class="btn-secondary">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-placeholder">
+        <img src="data/linkedinpic.jpeg" alt="Gabrielle Angeloro McKasy" class="avatar-photo" />
+        <span class="hero-visual-name">Gabrielle Angeloro McKasy</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div>
+        <p class="section-label">About me</p>
+        <h2 class="section-heading">Rigorous math,<br /><em>real-world impact.</em></h2>
+      </div>
+      <div class="about-text">
+        <p>
+          I'm a Senior Data Scientist and Computational Mathematician at Geometric Data Analytics, where I specialize in turning advanced mathematics into deployable software. My core focus is topological data analysis (TDA) and the explainability and trustworthiness of deep neural networks.
+        </p>
+        <p>
+          I've led research with NASA on DNN reliability in safety-critical systems, contributed to DARPA-funded agentic AI tools for naval design, and collaborated with Lawrence Berkeley National Lab on real-time anomaly detection for synchrotron experiments.
+        </p>
+        <p>
+          I hold an MS in Mathematics from Iowa State University and a BS in Mathematics, summa cum laude, from SUNY Geneseo. I've published at NeurIPS and IEEE Aerospace, and contributed to the open-source Scikit-TDA ecosystem.
+        </p>
+      </div>
+    </div>
+    <div class="about-stats" style="max-width:1200px; margin: 4rem auto 0;">
+      <div class="stat-card">
+        <div class="stat-number">5<span>+</span></div>
+        <div class="stat-label">Years at Geometric Data Analytics</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Peer-reviewed publications</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Research collaborations (NASA, DARPA, LBNL)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Open source contribution (Scikit-TDA)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div style="max-width:1200px; margin:0 auto;">
+      <p class="section-label">Selected work</p>
+      <h2 class="section-heading">Things I've <em>built.</em></h2>
+      <div class="work-employer-bar">
+        <img src="data/gda_logo.png" alt="Geometric Data Analytics" class="gda-logo" />
+        <span class="work-employer-name">Geometric Data Analytics &mdash; Durham, NC &mdash; Jan 2021&ndash;Present</span>
+      </div>
+    </div>
+    <div class="work-grid" style="max-width:1200px; margin:0 auto;">
+      <div class="work-card">
+        <span class="work-card-tag">Agentic AI · DARPA</span>
+        <h3>Naval Design Assistant</h3>
+        <p>Led a DARPA-funded effort to build an agentic AI assistant with natural language querying, implementing set-based design principles within a modular function-calling framework.</p>
+      </div>
+      <div class="work-card">
+        <span class="work-card-tag">AI Safety · NASA</span>
+        <h3>DNN Explainability &amp; Validation</h3>
+        <p>Embedded topological shape invariants into validation and verification systems for deep neural networks, enabling continuous model health monitoring in safety-critical applications.</p>
+      </div>
+      <div class="work-card">
+        <span class="work-card-tag">Data Science · LBNL</span>
+        <h3>Synchrotron Anomaly Detection</h3>
+        <p>Co-led anomaly detection R&D for Lawrence Berkeley National Lab's synchrotron experiments, surfacing emerging issues in continuously updating high-throughput sensor data.</p>
+      </div>
+      <div class="work-card">
+        <span class="work-card-tag">Optimization · Army</span>
+        <h3>Supply Chain Optimization Platform</h3>
+        <p>Developed and implemented supply chain optimization algorithms for an Army-funded platform, collaborating across frontend and backend teams to integrate into a production schema.</p>
+      </div>
+      <div class="work-card">
+        <span class="work-card-tag">Algorithms</span>
+        <h3>Aerial Search &amp; Rescue Pathfinding</h3>
+        <p>Designed and implemented pathfinding algorithms for aerial vehicle search and rescue operations, delivering efficient route solutions under real-world constraints.</p>
+      </div>
+      <div class="work-card">
+        <span class="work-card-tag">Research · Raytheon</span>
+        <h3>CNN Object Detection Featurizations</h3>
+        <p>Created and implemented novel topological featurizations for CNN pipelines used in object detection, in collaboration with Raytheon research partners.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="education-inner">
+      <p class="section-label">Education</p>
+      <h2 class="section-heading">Where I<br /><em>studied.</em></h2>
+      <div class="education-list">
+        <div class="education-item">
+          <img src="data/iowa_state_logo.png" alt="Iowa State University" class="school-logo" />
+          <div>
+            <div class="education-degree">Master of Science in Mathematics</div>
+            <div class="education-school">Iowa State University &mdash; Ames, IA</div>
+            <div class="education-detail">
+              Thesis: Engineered a Python package for vectorizing persistent homology output; contributed to the Persim TDA package within the Scikit-TDA open source library.<br />
+              Coursework: Graph Theory, Algebraic Topology, Linear Algebra, Statistics.<br />
+              Board member, Association for Women in Mathematics; organizer, AWM &amp; Mathematicians of Color Alliance speaker series.
+            </div>
+          </div>
+          <div class="education-year">June 2021</div>
+        </div>
+        <div class="education-item">
+          <img src="data/geneseo_logo.png" alt="SUNY Geneseo" class="school-logo" />
+          <div>
+            <div class="education-degree">Bachelor of Science in Mathematics, <em>summa cum laude</em></div>
+            <div class="education-school">State University of New York (SUNY), College at Geneseo &mdash; Geneseo, NY</div>
+            <div class="education-detail">
+              GPA: 3.83. Coursework: Numerical Analysis, Probability, Number Theory.<br />
+              Pi Mu Epsilon and Phi Beta Kappa honor societies. Budapest Semesters in Mathematics, Hungary.
+            </div>
+          </div>
+          <div class="education-year">May 2018</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="publications-inner">
+      <div class="publications-header">
+        <div>
+          <p class="section-label">Publications</p>
+          <h2 class="section-heading">Research in <em>print.</em></h2>
+        </div>
+        <a href="data/Angeloro_McKasy_resume.pdf" download class="btn-secondary">Download CV</a>
+      </div>
+      <div class="publications-list">
+        <a href="https://arxiv.org/abs/2306.11835" target="_blank" rel="noopener" class="publication-card">
+          <div class="publication-card-image publication-card-image--small">
+            <img src="data/parallax_graphic.png" alt="Topological Parallax figure" />
+          </div>
+          <div class="publication-card-body">
+            <div class="publication-meta">
+              <span class="publication-date">NeurIPS 2023</span>
+              <span class="publication-tag">TDA · DNN</span>
+            </div>
+            <div class="publication-title">Topological Parallax: A Geometric Specification for Deep Perception Models</div>
+          </div>
+        </a>
+        <a href="https://arxiv.org/abs/2206.07486" target="_blank" rel="noopener" class="publication-card">
+          <div class="publication-card-image">
+            <img src="data/signal_compression_graphic.png" alt="Signal compression figure" />
+          </div>
+          <div class="publication-card-body">
+            <div class="publication-meta">
+              <span class="publication-date">IEEE Aerospace 2023</span>
+              <span class="publication-tag">Signal Processing</span>
+            </div>
+            <div class="publication-title">Topological Simplification of Signals for Inference and Approximate Reconstruction</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="skills-inner">
+      <div class="skills-header">
+        <div>
+          <p class="section-label">Skills</p>
+          <h2 class="section-heading">What I<br /><em>work with.</em></h2>
+        </div>
+        <p class="skills-description">
+          My work sits at the intersection of mathematics, machine learning, and production software. I specialize in applying topological and geometric methods to real-world AI problems — from model explainability to anomaly detection — and I build the software to deploy those ideas at scale.
+        </p>
+      </div>
+      <div class="skills-list">
+        <div class="skill-item"><span class="skill-dot"></span>Python &amp; Scientific Stack (PyTorch, Pandas, SciPy, Scikit-learn)</div>
+        <div class="skill-item"><span class="skill-dot"></span>Topological Data Analysis (TDA)</div>
+        <div class="skill-item"><span class="skill-dot"></span>Deep Neural Network Explainability</div>
+        <div class="skill-item"><span class="skill-dot"></span>Agentic AI &amp; LLM Systems</div>
+        <div class="skill-item"><span class="skill-dot"></span>Distributed Computing (Ray, Ray Tune)</div>
+        <div class="skill-item"><span class="skill-dot"></span>Machine Learning Engineering</div>
+        <div class="skill-item"><span class="skill-dot"></span>PyTorch &amp; TensorFlow</div>
+        <div class="skill-item"><span class="skill-dot"></span>Anomaly Detection &amp; Signal Processing</div>
+        <div class="skill-item"><span class="skill-dot"></span>R, Matlab, BASH, LaTeX</div>
+        <div class="skill-item"><span class="skill-dot"></span>AI Safety &amp; Trustworthy AI</div>
+        <div class="skill-item"><span class="skill-dot"></span>Web Apps (Python Panel)</div>
+        <div class="skill-item"><span class="skill-dot"></span>Optimization Algorithms</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <p class="section-label">Contact</p>
+      <h2 class="section-heading">Let's<br /><em>connect.</em></h2>
+      <p>I'm always open to interesting conversations — whether you want to collaborate on research, discuss AI safety, or just say hello.</p>
+      <div class="contact-links">
+        <a href="mailto:gabrielleangeloro@gmail.com" class="btn-primary">Send an email</a>
+        <a href="https://www.linkedin.com/in/gabby-angeloro-mckasy-b508b2178/" target="_blank" rel="noopener" class="btn-secondary">LinkedIn</a>
+        <a href="data/Angeloro_McKasy_resume.pdf" download class="btn-secondary">Download resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Gabrielle Angeloro McKasy</p>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
